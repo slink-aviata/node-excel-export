@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/andreyan-andreev/node-excel-export#readme",
   "dependencies": {
-    "xlsx-style": "mcsf/js-xlsx"
+    "xlsx-style": "slink-aviata/js-xlsx"
   }
 }

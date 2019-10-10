@@ -67,6 +67,13 @@ let buildExport = (params, options) => {
             style: specification[col].cellStyle
           }
         }
+
+        if (specification[col].cellFormula) {
+          cell_value = {
+            value: cell_value,
+            formula: specification[col].cellFormula
+          }
+        }
         row.push(cell_value) // Push new cell to the row
       }
       data.push(row) // Push new row to the sheet
