@@ -70,7 +70,7 @@ let buildExport = (params, options) => {
 
         if (specification[col].cellFormula) {
           cell_value = {
-            value: cell_value,
+            ...cell_value,
             formula: specification[col].cellFormula
           }
         }
