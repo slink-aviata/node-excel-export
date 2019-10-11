@@ -68,9 +68,16 @@ let buildExport = (params, options) => {
           }
         }
 
-        if (specification[col].cellFormula) {
+        if (specification[col].cellFormula && typeof specification[col].cellFormula == 'function') {
           cell_value = {
-            ...cell_value,
+            value: typeof cell_value == 'object' && cell_value.value ? cell_value.value : '',
+            style: typeof cell_value == 'object' && cell_value.style ? cell_value.style : {},
+            formula: specification[col].cellFormula(record[col], record, dataset.indexOf(record) + 2) // +2 accounts for header and 0 based index vs. spreadsheet row starting at 1
+          }
+        } else {
+          cell_value = {
+            value: typeof cell_value == 'object' && cell_value.value ? cell_value.value : '',
+            style: typeof cell_value == 'object' && cell_value.style ? cell_value.style : {},
             formula: specification[col].cellFormula
           }
         }
